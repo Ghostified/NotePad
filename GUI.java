@@ -29,6 +29,8 @@ public class GUI implements ActionListener{
     JMenuItem itemWrap;
     JMenu menuFont;
     JMenu menuFontSize; 
+    JMenuItem itemFontArial, itemFontComicSaans, itemFontTimesNewRoman;
+    JMenuBar itemFontSize8, itemFontSize12, itemFontSize16, itemFontSize20, itemFontSize24, itemFontSize28;
 
     Function_File file = new Function_File(this);
     Function_Formart formart = new Function_Formart(this);
@@ -112,6 +114,21 @@ public class GUI implements ActionListener{
 
         menuFont = new JMenu("Font");
         menuFormart.add(menuFont);
+
+        itemFontArial = new JMenuItem("Arial");
+        itemFontArial.addActionListener(this);
+        itemFontArial.setActionCommand("Arial");
+        menuFont.add(itemFontArial);
+
+        itemFontComicSaans = new JMenuItem("Comic Sans");
+        itemFontComicSaans.addActionListener(this);
+        itemFontComicSaans.setActionCommand("ComicSans");
+        menuFont.add(itemFontComicSaans);
+
+        itemFontTimesNewRoman = new JMenuItem("Time New Roman");
+        itemFontTimesNewRoman.addActionListener(this);
+        itemFontTimesNewRoman.setActionCommand("TimesNewRoman");
+        menuFont.add(itemFontTimesNewRoman);
 
         menuFontSize = new JMenu();
         menuFormart.add(menuFontSize);
