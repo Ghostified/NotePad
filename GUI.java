@@ -13,13 +13,25 @@ import java.awt.event.ActionListener;
 public class GUI implements ActionListener{
 
     JFrame window;
+
+    //Text Area 
     JTextArea textArea;
     JScrollPane scrollPane;
+
+    //Top Menu Bar
     JMenuBar menuBar;
     JMenu menuFile, menuEdit, menuFormart, menuColor;
+
+    //File menu
     JMenuItem itemNew, itemOpen, itemSave, itemSaveAs, itemExit;
 
+    //Formart Menu
+    JMenuItem itemWrap;
+    JMenu menuFont;
+    JMenu menuFontSize; 
+
     Function_File file = new Function_File(this);
+    Function_Formart formart = new Function_Formart(this);
 
 
     public static void main(String[] args) throws Exception {
@@ -30,6 +42,7 @@ public class GUI implements ActionListener{
         createTextArea();
         createMenuBar();
         createFileMenu();
+        createFormartMenu();
         window.setVisible(true);
     }
 
@@ -89,6 +102,19 @@ public class GUI implements ActionListener{
         itemExit.addActionListener(this);
         itemExit.setActionCommand("Exit");
         menuFile.add(itemExit);
+    }
+
+    public void createFormartMenu () {
+        itemWrap = new JMenuItem(" Word Wrap : Off");
+        itemWrap.addActionListener(this);
+        itemWrap.setActionCommand("Word Wrap");
+        menuFormart.add(itemWrap);
+
+        menuFont = new JMenu("Font");
+        menuFormart.add(menuFont);
+
+        menuFontSize = new JMenu();
+        menuFormart.add(menuFontSize);
     }
 
     @Override
