@@ -30,7 +30,7 @@ public class GUI implements ActionListener{
     JMenuItem itemWrap;
     JMenu menuFont;
     JMenu menuFontSize; 
-    JMenuItem itemFontArial, itemFontComicSaans, itemFontTimesNewRoman;
+    JMenuItem itemFontArial, itemFontComicSaans, itemFontFelipa, itemFontAlgerian;
     JMenuItem itemFontSize8, itemFontSize12, itemFontSize16, itemFontSize20, itemFontSize24, itemFontSize28;
 
     Function_File file = new Function_File(this);
@@ -46,6 +46,10 @@ public class GUI implements ActionListener{
         createMenuBar();
         createFileMenu();
         createFormartMenu();
+
+        formart.selectedFont = "Felipa";
+        formart.createFont(15);
+        formart.wordWrap();
         window.setVisible(true);
     }
 
@@ -126,10 +130,15 @@ public class GUI implements ActionListener{
         itemFontComicSaans.setActionCommand("Comic Sans");
         menuFont.add(itemFontComicSaans);
 
-        itemFontTimesNewRoman = new JMenuItem("Time New Roman");
-        itemFontTimesNewRoman.addActionListener(this);
-        itemFontTimesNewRoman.setActionCommand("Times New Roman");
-        menuFont.add(itemFontTimesNewRoman);
+        itemFontFelipa = new JMenuItem("Felipa");
+        itemFontFelipa.addActionListener(this);
+        itemFontFelipa.setActionCommand("felipaFont");
+        menuFont.add(itemFontFelipa);
+
+        itemFontAlgerian = new JMenuItem("Algerian");
+        itemFontAlgerian.addActionListener(this);
+        itemFontAlgerian.setActionCommand("Algerian");
+        menuFont.add(itemFontAlgerian);
 
         menuFontSize = new JMenu("Font Size");
         menuFormart.add(menuFontSize);
@@ -184,6 +193,26 @@ public class GUI implements ActionListener{
             case "Exit" : file.exit ();
             break;
             case "Word Wrap": formart.wordWrap();
+            break;
+            case "Arial" : formart.setFont(command);
+            break;
+            case "Comic Sans" : formart.setFont(command);
+            break;
+            case "felipaFont" : formart.setFont(command);
+            break; 
+            case "Algerian" : formart.setFont(command);
+            break;
+            case  "size8" : formart.createFont(8);
+            break;
+            case "size12" : formart.createFont(12);
+            break;
+            case "size16" : formart.createFont(16);
+            break;
+            case "size20" : formart.createFont(20);
+            break;
+            case "size24" : formart.createFont(24);
+            break;
+            case"size28" : formart.createFont(28);
             break;
         }
     }

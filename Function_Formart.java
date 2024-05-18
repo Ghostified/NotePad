@@ -1,7 +1,9 @@
+import java.awt.Font;
 public class Function_Formart {
 
     GUI gui;
-    Font arial, comicSans, 
+    Font arial, comicSansMs, felipa, algerian;
+    String selectedFont;
 
     public Function_Formart  (GUI gui) {
         this.gui = gui; 
@@ -23,7 +25,32 @@ public class Function_Formart {
         }
     }
 
-    public void createFont () {
+    public void createFont(int fontSize) {
+        arial = new Font("Arial", Font.PLAIN, fontSize);
+        comicSansMs = new Font("Comic Sans Ms", Font.PLAIN, fontSize);
+        felipa = new Font("Felipa", Font.PLAIN, fontSize);
+        algerian = new Font("Algerian", Font.PLAIN, fontSize);
 
+        //setFont method to change the size
+        setFont(selectedFont);
+    }
+
+    //method to set font to the text area
+    public void setFont (String font ) {
+        selectedFont = font;
+
+        switch (selectedFont) {
+            case "Arial" : 
+                gui.textArea.setFont(arial);
+                break;
+            case "Comic Sans" : 
+                gui.textArea.setFont(comicSansMs);
+                break;
+            case "felipaFont" : 
+                gui.textArea.setFont(felipa);
+                break;
+            case "Algerian" :
+                gui.textArea.setFont(algerian);
+        }
     }
 }
