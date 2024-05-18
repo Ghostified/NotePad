@@ -35,7 +35,7 @@ public class Function_Formart {
         setFont(selectedFont);
     }
 
-    //method to set font
+    //method to set font to the text area
     public void setFont (String font ) {
         selectedFont = font;
 
