@@ -33,8 +33,12 @@ public class GUI implements ActionListener{
     JMenuItem itemFontArial, itemFontComicSaans, itemFontFelipa, itemFontAlgerian;
     JMenuItem itemFontSize8, itemFontSize12, itemFontSize16, itemFontSize20, itemFontSize24, itemFontSize28;
 
+    //Color Options 
+    JMenuItem itemColor1, itemColor2, itemColor3;
+
     Function_File file = new Function_File(this);
     Function_Formart formart = new Function_Formart(this);
+    Function_Color color = new Function_Color(this);
 
 
     public static void main(String[] args) throws Exception {
@@ -46,6 +50,7 @@ public class GUI implements ActionListener{
         createMenuBar();
         createFileMenu();
         createFormartMenu();
+        createColorMenu();
 
         formart.selectedFont = "Felipa";
         formart.createFont(15);
@@ -176,6 +181,23 @@ public class GUI implements ActionListener{
 
     }
 
+    public void createColorMenu() {
+        itemColor1 = new JMenuItem("Green");
+        itemColor1.addActionListener(this);
+        itemColor1.setActionCommand("Green");
+        menuColor.add(itemColor1);
+
+        itemColor2 = new JMenuItem("Blue");
+        itemColor2.addActionListener(this);
+        itemColor2.setActionCommand("Blue");
+        menuColor.add(itemColor2);
+
+        itemColor3 = new JMenuItem("Red");
+        itemColor3.addActionListener(this);
+        itemColor3.setActionCommand("Red");
+        menuColor.add(itemColor3);
+    }
+
     @Override
     public void actionPerformed (ActionEvent e) {
 
@@ -213,6 +235,12 @@ public class GUI implements ActionListener{
             case "size24" : formart.createFont(24);
             break;
             case"size28" : formart.createFont(28);
+            break;
+            case "Green" : color.changeColor(command);
+            break;
+            case "Blue" : color.changeColor(command);
+            break;
+            case "Red" : color.changeColor(command);
             break;
         }
     }
