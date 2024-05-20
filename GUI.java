@@ -55,6 +55,7 @@ public class GUI implements ActionListener{
         formart.selectedFont = "Felipa";
         formart.createFont(15);
         formart.wordWrap();
+        color.changeColor("white");
         window.setVisible(true);
     }
 
