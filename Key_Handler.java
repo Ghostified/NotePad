@@ -15,7 +15,7 @@ public class Key_Handler implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Unimplemented method 'keyTyped'");
+        
     }
 
     @Override
@@ -23,19 +23,25 @@ public class Key_Handler implements KeyListener {
 
         //S key shortcut to save file with control button
         //The save dialog box should open to save a file 
-
         if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_S ){
             gui.file.save();
         }
-        if (e.isShiftDown() && e.getKeyCode() == KeyEvent.VK_S ){
+
+        //Keyboard shortcut to save as 
+        if (e.isShiftDown() && e.isControlDown() && e.getKeyCode() == KeyEvent.VK_S ){
             gui.file.saveAs();
+
+            //Keyboard shortcut to open file menu
         }
-        throw new UnsupportedOperationException("Unimplemented method 'keyPressed'");
+        if (e.isAltDown() && e.getKeyCode() == KeyEvent.VK_F){
+            gui.menuFile.doClick();
+        }
+        
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Unimplemented method 'keyReleased'");
+        
     }
 
 
